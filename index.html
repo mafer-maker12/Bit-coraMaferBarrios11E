@@ -27,6 +27,7 @@
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
+            width: 90%;
         }
         footer{
             display: flex;
@@ -61,11 +62,10 @@
         .semana {
             background-color: #ffffff;
             border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             border: 1px solid #ddd;
-            text-align: left;
             transition: 0.3s;
         }
 
@@ -74,9 +74,62 @@
             border-color: #a020f0; /* Un toque morado al pasar el mouse */
         }
 
+        /* Centramos los títulos de cada semana */
         .semana h2 {
             margin-top: 0;
             color: #281e59;
+            text-align: center;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #f3f4ff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Contenedor flexible para dividir izquierda y derecha */
+        .semana-contenido {
+            display: flex;
+            gap: 30px;
+            align-items: center; /* Alinea verticalmente al centro */
+            text-align: left;
+        }
+
+        /* Columna Izquierda: Explicación */
+        .columna-izquierda {
+            flex: 1; /* Toma el 50% del espacio */
+        }
+
+        /* Columna Derecha: Multimedia */
+        .columna-derecha {
+            flex: 1; /* Toma el 50% del espacio */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Títulos secundarios dentro de la columna derecha */
+        .columna-derecha h3 {
+            margin-top: 0;
+            color: #281e59;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Aseguramos que los videos, imágenes e iframes ocupen bien su espacio */
+        .columna-derecha video, 
+        .columna-derecha img, 
+        .columna-derecha iframe {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Si la pantalla es pequeña (móviles), se muestra uno abajo de otro */
+        @media(max-width: 768px) {
+            .semana-contenido {
+                flex-direction: column;
+                gap: 20px;
+            }
         }
     </style>
 </head>
@@ -87,55 +140,79 @@
     <main>
         <h4>Contenido de la página WEB</h4>
 
-        <!-- SEMANA 1 -->
         <div class="semana">
             <h2>Semana 1: Introducción a Arduino</h2>
-            <p>Arduino es una plataforma de creación electrónica basada en hardware y software libre. En esta clase aprendimos las partes de la placa y la diferencia entre señales digitales y analógicas.</p>
-            
-            <iframe src="Recursos/Arduino 1.pdf" width="100%" height="400px" style="border: none; border-radius: 8px;"></iframe>
-            
-            <br><br>
-            <a href="Recursos/Arduino 1.pdf" target="_blank">📄 Abrir PDF en pantalla completa</a>
+            <div class="semana-contenido">
+                <div class="columna-izquierda">
+                    <p>Arduino es una plataforma de creación electrónica basada en hardware y software libre. En esta clase aprendimos las partes de la placa y la diferencia entre señales digitales y analógicas.</p>
+                    <br>
+                    <a href="Recursos/Arduino 1.pdf" target="_blank">📄 Abrir PDF en pantalla completa</a>
+                </div>
+                <div class="columna-derecha">
+                    <iframe src="Recursos/Arduino 1.pdf" height="300px" style="border: none;"></iframe>
+                </div>
+            </div>
         </div>
 
-        <!-- SEMANA 2 -->
         <div class="semana">
             <h2>Semana 2: Estilos CSS</h2>
-            <p>En esta semana aprendimos a usar tinkercard y aprendimos a realizar un circuito.</p>
-            <h3>Video explicativo</h3>
-            <video controls width="100%" style="border-radius: 10px;">
-                <source src="Recursos/ARDUINO.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de este video.
-            </video>
+            <div class="semana-contenido">
+                <div class="columna-izquierda">
+                    <p>En esta semana aprendimos a usar tinkercard y aprendimos a realizar un circuito.</p>
+                </div>
+                <div class="columna-derecha">
+                    <h3>Video explicativo</h3>
+                    <video controls>
+                        <source src="Recursos/ARDUINO.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de este video.
+                    </video>
+                </div>
+            </div>
         </div>
 
-        <!-- SEMANA 3 -->
         <div class="semana">
             <h2>Semana 3: Circuito de LEDs en Serie/Paralelo con Arduino</h2>
-            <p>En esta sesión armamos un circuito físico utilizando la placa Arduino y una protoboard. Conectamos cuatro LEDs de diferentes colores (verde, amarillo, blanco y rojo) utilizando resistencias para proteger los componentes y cables puentes para programar sus encendidos.</p>
-            
-            <h3>Evidencia del Circuito</h3>
-            <img src="Recursos/img/IMG_6371.jpeg" alt="Circuito Arduino con 4 LEDs" style="width: 100%; max-width: 600px; display: block; margin: 0 auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            <div class="semana-contenido">
+                <div class="columna-izquierda">
+                    <p>En esta sesión armamos un circuito físico utilizando la placa Arduino y una protoboard. Conectamos cuatro LEDs de diferentes colores (verde, amarillo, blanco y rojo) utilizando resistencias para proteger los componentes y cables puentes para programar sus encendidos.</p>
+                </div>
+                <div class="columna-derecha">
+                    <h3>Evidencia del Circuito</h3>
+                    <img src="Recursos/img/IMG_6371.jpeg" alt="Circuito Arduino con 4 LEDs" style="box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                </div>
+            </div>
         </div>
 
-        <!-- SEMANA 4 -->
         <div class="semana">
             <h2>Semana 4: Simulación y Programación Avanzada</h2>
-            <p>En esta sesión profundizamos en la escritura de código en Tinkercad para automatizar nuestros circuitos, mejorando el control de los tiempos de encendido y apagado.</p>
-            <h3>Video explicativo</h3>
-            <video controls width="70%" style="border-radius: 10px;">
-                <source src="3 same time.mp4" type="video/mp4">
-            </video>
+            <div class="semana-contenido">
+                <div class="columna-izquierda">
+                    <p>En esta sesión profundizamos en la escritura de código en Tinkercad para automatizar nuestros circuitos, mejorando el control de los tiempos de encendido y apagado.</p>
+                </div>
+                <div class="columna-derecha">
+                    <h3>Video explicativo</h3>
+                    <video controls>
+                        <source src="3 same time.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de este video.
+                    </video>
+                </div>
+            </div>
         </div>
 
-        <!-- SEMANA 5 -->
         <div class="semana">
             <h2>Semana 5: Integración de Sensores con Arduino</h2>
-            <p>Durante esta semana aprendimos a conectar sensores básicos al circuito para interactuar con el entorno físico, logrando que los LEDs reaccionen automáticamente a cambios externos.</p>
-            <h3>Video explicativo</h3>
-            <video controls width="100%" style="border-radius: 10px;">
-                <source src="semaforo.mp4" type="video/mp4">
-            </video>
+            <div class="semana-contenido">
+                <div class="columna-izquierda">
+                    <p>Durante esta semana aprendimos a conectar sensores básicos al circuito para interactuar con el entorno físico, logrando que los LEDs reaccionen automáticamente a cambios externos.</p>
+                </div>
+                <div class="columna-derecha">
+                    <h3>Video explicativo</h3>
+                    <video controls>
+                        <source src="semaforo.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de este video.
+                    </video>
+                </div>
+            </div>
         </div>
         
     </main>
